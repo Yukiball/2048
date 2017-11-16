@@ -390,8 +390,19 @@ var list = {
 	},
 	grade:function(){
 		if(!window.localStorage){
-            alert("浏览器不支持localstorage");
-            return false;
+            console.log("浏览器不支持localstorage,采用cookie");
+            this.cookie = window.cookie;
+            if(!this.cookie){
+            	this.cookie.setCookie(score,0,80);
+            	this.his.text(this.cookie.getCookie(score));
+            }else{
+            	this.his.text(this.cookie.getCookie(score));
+            	if (Number(this.now.text()) > Number(this.his.text())) {
+            		this.cookie.removeCookie(score);
+					this.cookie.setCookie(score,Number(this.now.text()),80);
+            		this.his.text(this.cookie.getCookie(score));
+				};
+            }
         }else{
             this.storage = window.localStorage;
             if(!this.storage.score){
