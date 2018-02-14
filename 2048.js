@@ -491,7 +491,7 @@ var list = {
 					$('.aleart').remove()
 					that.init()
 				})
-				$('.agin').on('ontouchstart',function(e){
+				$('.agin').on('touchstart',function(e){
 					$('.con').empty();
 					$('.aleart').remove()
 					that.init()
