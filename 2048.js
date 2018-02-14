@@ -94,14 +94,21 @@ var list = {
         this.endX = touch.clientX; 
 	},
 	touchend:function(){
-		console.log(this.endY)
-		if(this.endY - this.startY > 30){
+		if(this.endY - this.startY > 50 && Math.abs(this.endX - this.startX) < this.endY - this.startY){
+			console.log(this.endY - this.startY)
+			console.log(this.endX - this.startX)
 			this.onkeydown(40)
-		}else if(this.endY - this.startY < -30){
+		}else if(this.endY - this.startY < -50 && Math.abs(this.endX - this.startX) < Math.abs(this.endY - this.startY)){
+			console.log(this.endY - this.startY)
+			console.log(this.endX - this.startX)
 			this.onkeydown(38)
-		}else if(this.endX - this.startX > 30){
+		}else if(this.endX - this.startX > 50 && Math.abs(this.endY - this.startY) < this.endX - this.startX){
+			console.log(this.endY - this.startY)
+			console.log(this.endX - this.startX)
 			this.onkeydown(39)
-		}else if(this.endX - this.startX < -30){
+		}else if(this.endX - this.startX < -50 && Math.abs(this.endY - this.startY) < Math.abs(this.endX - this.startX)){
+			console.log(this.endY - this.startY)
+			console.log(this.endX - this.startX)
 			this.onkeydown(37)
 		}
 	},
