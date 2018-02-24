@@ -86,6 +86,8 @@ var list = {
         var touch = e.touches[0];
         this.startY = touch.clientY; 
         this.startX = touch.clientX; 
+        this.endY = touch.clientY; 
+        this.endX = touch.clientX; 
 	},
 	touchmove:function(e){
 		e.preventDefault();
@@ -95,20 +97,12 @@ var list = {
 	},
 	touchend:function(){
 		if(this.endY - this.startY > 50 && Math.abs(this.endX - this.startX) < this.endY - this.startY){
-			console.log(this.endY - this.startY)
-			console.log(this.endX - this.startX)
 			this.onkeydown(40)
 		}else if(this.endY - this.startY < -50 && Math.abs(this.endX - this.startX) < Math.abs(this.endY - this.startY)){
-			console.log(this.endY - this.startY)
-			console.log(this.endX - this.startX)
 			this.onkeydown(38)
 		}else if(this.endX - this.startX > 50 && Math.abs(this.endY - this.startY) < this.endX - this.startX){
-			console.log(this.endY - this.startY)
-			console.log(this.endX - this.startX)
 			this.onkeydown(39)
 		}else if(this.endX - this.startX < -50 && Math.abs(this.endY - this.startY) < Math.abs(this.endX - this.startX)){
-			console.log(this.endY - this.startY)
-			console.log(this.endX - this.startX)
 			this.onkeydown(37)
 		}
 	},
